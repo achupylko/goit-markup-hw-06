@@ -323,7 +323,7 @@ body:has(.backdrop.is-open) {
 /* #endregion */
 
 /* #region Hero */
-.hero-container {
+.hero {
   max-width: 320px;
   margin: 0 auto;
   padding: 72px 0;
@@ -339,7 +339,7 @@ body:has(.backdrop.is-open) {
 }
 
 @media (min-resolution: 192dpi) {
-  .hero-container {
+  .hero {
     background-image: linear-gradient(
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
@@ -349,7 +349,7 @@ body:has(.backdrop.is-open) {
 }
 
 @media only screen and (min-width: 768px) {
-  .hero-container {
+  .hero {
     max-width: 768px;
     padding-top: 112px;
     padding-bottom: 112px;
@@ -361,7 +361,7 @@ body:has(.backdrop.is-open) {
   }
 
   @media (min-resolution: 192dpi) {
-    .hero-container {
+    .hero {
       background-image: linear-gradient(
           rgba(46, 47, 66, 0.7),
           rgba(46, 47, 66, 0.7)
@@ -372,7 +372,7 @@ body:has(.backdrop.is-open) {
 }
 
 @media only screen and (min-width: 1158px) {
-  .hero-container {
+  .hero {
     max-width: 1440px;
     padding-top: 188px;
     padding-bottom: 188px;
@@ -384,7 +384,7 @@ body:has(.backdrop.is-open) {
   }
 
   @media (min-resolution: 192dpi) {
-    .hero-container {
+    .hero {
       background-image: linear-gradient(
           rgba(46, 47, 66, 0.7),
           rgba(46, 47, 66, 0.7)
@@ -455,6 +455,12 @@ body:has(.backdrop.is-open) {
   }
 }
 
+@media only screen and (min-width: 1158px) {
+  .benefits-item {
+    width: calc((100% - 24px * 3) / 4);
+  }
+}
+
 .benefits-wrapper {
   display: none;
 }
@@ -499,24 +505,36 @@ body:has(.backdrop.is-open) {
 
 /* #region Team */
 .team {
-  padding: 120px 0;
   background-color: #f4f4fd;
-}
-
-.team .container {
-  display: flex;
-  flex-direction: column;
 }
 
 .team-card-set {
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 72px;
+}
+
+@media only screen and (min-width: 768px) {
+  .team-card-set {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 64px 24px;
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+  .team-card-set {
+    flex-wrap: nowrap;
+  }
 }
 
 .team-card {
   display: flex;
   flex-direction: column;
-  width: calc((100% - 72px) / 4);
+  /* width: calc((100% - 72px) / 4); */
+  max-width: 264px;
   border-radius: 0px 0px 4px 4px;
   background-color: #ffffff;
   box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
@@ -524,7 +542,7 @@ body:has(.backdrop.is-open) {
     0px 2px 1px 0px rgba(46, 47, 66, 0.08);
 }
 
-.team-card-content {
+.team-card-body {
   padding: 32px 0px;
 }
 
@@ -538,7 +556,7 @@ body:has(.backdrop.is-open) {
   color: #2e2f42;
 }
 
-.team-card-description {
+.team-card-text {
   margin-bottom: 8px;
   text-align: center;
 }
