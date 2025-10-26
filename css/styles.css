@@ -574,23 +574,43 @@ body:has(.backdrop.is-open) {
 /* #endregion */
 
 /* #region Portfolio */
-.portfolio {
-  padding: 120px 0 120px 0;
-}
-
 .portfolio-card-set {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   row-gap: 48px;
-  column-gap: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .portfolio-card-set {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 72px 24px;
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+  .portfolio-card-set {
+    row-gap: 48px;
+  }
 }
 
 .portfolio-card {
   display: flex;
   flex-direction: column;
-  width: calc((100% - 48px) / 3);
   background-color: #ffffff;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media only screen and (min-width: 768px) {
+  .portfolio-card {
+    width: calc((100% - 24px * 1) / 2);
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+  .portfolio-card {
+    width: calc((100% - 24px * 2) / 3);
+  }
 }
 
 .portfolio-card:hover {
@@ -599,7 +619,7 @@ body:has(.backdrop.is-open) {
     0px 2px 1px 0px rgba(46, 47, 66, 0.08);
 }
 
-.portfolio-card-content {
+.portfolio-card-body {
   padding: 32px 16px;
   border: 1px solid #e7e9fc;
   border-top: none;
